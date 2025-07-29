@@ -1,0 +1,33 @@
+## 📘 My Learnings
+
+### 🛰 Why We Used Two Different Satellites
+
+In this project, we used:
+
+- **Sentinel-2** for calculating **NDVI (Normalized Difference Vegetation Index)**
+- **Landsat-8** for calculating **LST (Land Surface Temperature)**
+
+One satellite alone is usually **not enough** to provide all the necessary data:
+- **Sentinel-2** does **not have thermal bands**, so it can't measure surface temperature.
+- **Landsat-8** has thermal bands, but its spectral resolution in visible/NIR bands is lower than Sentinel-2, so it's less ideal for NDVI.
+
+Hence, we used two satellites, each chosen for its **strength**:
+- **Sentinel-2**: Better for vegetation analysis (NDVI)
+- **Landsat-8**: Better for thermal analysis (LST)
+
+Even though the data comes from different satellites, we can still use them together effectively by:
+- Ensuring the **same AOI (Area of Interest)** is used
+- Using images from the **same date range**
+- Applying **cloud filtering** and **median composites** to get clean images
+
+---
+
+### 🌡️ Relationship Between NDVI and LST
+
+We observed that **NDVI and LST are inversely related**:
+- Areas with **high NDVI** (dense vegetation) tend to have **lower temperatures**
+- Areas with **low NDVI** (urban or bare land) often show **higher temperatures**
+
+This relationship is crucial in understanding the **Urban Heat Island effect**, and shows how green cover helps reduce surface temperature.
+
+---
